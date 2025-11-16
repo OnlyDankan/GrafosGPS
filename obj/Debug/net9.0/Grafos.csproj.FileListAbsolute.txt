@@ -1,0 +1,14 @@
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\bin\Debug\net9.0\Grafos.exe
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\bin\Debug\net9.0\Grafos.deps.json
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\bin\Debug\net9.0\Grafos.runtimeconfig.json
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\bin\Debug\net9.0\Grafos.dll
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\bin\Debug\net9.0\Grafos.pdb
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.AssemblyInfoInputs.cache
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.AssemblyInfo.cs
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.csproj.CoreCompileInputs.cache
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.dll
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\refint\Grafos.dll
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.pdb
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\Grafos.genruntimeconfig.cache
+C:\Users\marco\OneDrive\Desktop\GPS\Grafos\obj\Debug\net9.0\ref\Grafos.dll

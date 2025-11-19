@@ -99,6 +99,14 @@ public class Graph
         return caminho;
     }
 
+    public int PathDistance(List<string> path)
+    {
+        if (path == null || path.Count == 0)
+            return -1;
+
+        return path.Count - 1; 
+    }
+
     public void DisplayMap()
     {
         Console.WriteLine("\n--- MAPA ATUAL ---");
@@ -153,8 +161,15 @@ class Program
         var caminho = mapa.FindPath(start, end);
 
         if (caminho == null)
+        {
             Console.WriteLine("Nenhuma rota possível.");
+        }    
         else
+        {
             Console.WriteLine("Rota encontrada: " + string.Join(" -> ", caminho));
+
+            int distancia = mapa.PathDistance(caminho);
+            Console.WriteLine("Distância total: " + distancia + " ruas. ");
+        }
     }
 }

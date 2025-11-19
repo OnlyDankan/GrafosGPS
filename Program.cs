@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿// adj = adjacente (anda para os vizinhos)
+// Dictionary = busca rapida por nome chave da rua
+// HashSet = tabela sem repetição, ou seja evita duplicatas nas conexoes
 
-public class Graph
+// tipo que reunie métodos (funções) para manipular o grafico 
+public class Graph 
+
 {
     private Dictionary<string, HashSet<string>> adj;
 
     public Graph()
     {
+        // chamando as conexoes de adjacente
         adj = new Dictionary<string, HashSet<string>>();
     }
 
+    // funcoes:
     public void AddStreet(string street)
     {
         if (!adj.ContainsKey(street))
@@ -54,7 +58,8 @@ public class Graph
 
     public List<string> FindPath(string start, string end)
     {
-        if (!adj.ContainsKey(start) || !adj.ContainsKey(end))
+
+         if (!adj.ContainsKey(start) || !adj.ContainsKey(end))
             return null;
 
         Queue<string> fila = new Queue<string>();
@@ -99,6 +104,7 @@ public class Graph
         return caminho;
     }
 
+    // quantas casas foram percorridas
     public int PathDistance(List<string> path)
     {
         if (path == null || path.Count == 0)
@@ -138,14 +144,20 @@ class Program
         mapa.Connect("C", "E");
         mapa.Connect("E", "D");
 
+        // funcao pra ler, formatar pra maiusculo e remover espacos (evita erros)
+        string configString()
+        {
+            return Console.ReadLine().ToUpper().Replace(" ", "");
+        }
+
         Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
-        string block = Console.ReadLine();
+        string block = configString();
 
         if (!string.IsNullOrWhiteSpace(block))
             mapa.BlockStreet(block);
 
         Console.WriteLine("Deseja desbloquear alguma rua? (Digite ou deixe vazio)");
-        string unblock = Console.ReadLine();
+        string unblock = configString();
 
         if (!string.IsNullOrWhiteSpace(unblock))
             mapa.UnblockStreet(unblock);
@@ -153,10 +165,10 @@ class Program
         mapa.DisplayMap();
 
         Console.WriteLine("Rua de origem:");
-        string start = Console.ReadLine();
+        string start = configString();
 
         Console.WriteLine("Rua de destino:");
-        string end = Console.ReadLine();
+        string end = configString();
 
         var caminho = mapa.FindPath(start, end);
 

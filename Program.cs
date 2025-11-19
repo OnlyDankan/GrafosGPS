@@ -4,7 +4,6 @@
 
 // tipo que reunie métodos (funções) para manipular o grafico 
 public class Graph 
-
 {
     private Dictionary<string, HashSet<string>> adj;
 
@@ -122,66 +121,85 @@ public class Graph
         }
         Console.WriteLine("------------------\n");
     }
+
+    public void Stop()
+    {
+        Console.WriteLine("Encerrando sistema. Até a proxima!");
+        Environment.Exit(0);
+    }
 }
 
 class Program
 {
     static void Main()
     {
-        Graph mapa = new Graph();
-
-        // Ruas base
-        mapa.AddStreet("A");
-        mapa.AddStreet("B");
-        mapa.AddStreet("C");
-        mapa.AddStreet("D");
-        mapa.AddStreet("E");
-
-        // Conexões
-        mapa.Connect("A", "B");
-        mapa.Connect("A", "C");
-        mapa.Connect("B", "D");
-        mapa.Connect("C", "E");
-        mapa.Connect("E", "D");
-
-        // funcao pra ler, formatar pra maiusculo e remover espacos (evita erros)
-        string configString()
+        bool Continua = true;
+        while (Continua)
         {
-            return Console.ReadLine().ToUpper().Replace(" ", "");
-        }
+            Console.WriteLine("\n--- Iniciando Sistema ---\n...(Digite 'sair' para encerrar ou vazio para continuar)...\n");
 
-        Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
-        string block = configString();
+            Graph mapa = new Graph();
 
-        if (!string.IsNullOrWhiteSpace(block))
-            mapa.BlockStreet(block);
+            // Ruas base
+            mapa.AddStreet("A");
+            mapa.AddStreet("B");
+            mapa.AddStreet("C");
+            mapa.AddStreet("D");
+            mapa.AddStreet("E");
 
-        Console.WriteLine("Deseja desbloquear alguma rua? (Digite ou deixe vazio)");
-        string unblock = configString();
+            // Conexões
+            mapa.Connect("A", "B");
+            mapa.Connect("A", "C");
+            mapa.Connect("B", "D");
+            mapa.Connect("C", "E");
+            mapa.Connect("E", "D");
 
-        if (!string.IsNullOrWhiteSpace(unblock))
-            mapa.UnblockStreet(unblock);
+            // funcao pra ler, formatar pra maiusculo e remover espacos (evita erros)
+            string configString()
+            {
+                return Console.ReadLine().ToUpper().Replace(" ", "");
+            }
 
-        mapa.DisplayMap();
+            // se o usuario digitar sair, ele para o programa *🦆 melhor mexer pra q isso possa ocorrer a qualquer momento e nao apenas no começo (dps faço isso)
+            if (configString() == "SAIR")
+            {
+                mapa.Stop();
+                break;
+            }
 
-        Console.WriteLine("Rua de origem:");
-        string start = configString();
+            Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
+            string block = configString();
 
-        Console.WriteLine("Rua de destino:");
-        string end = configString();
+            if (!string.IsNullOrWhiteSpace(block))
+                mapa.BlockStreet(block);
 
-        var caminho = mapa.FindPath(start, end);
+            Console.WriteLine("Deseja desbloquear alguma rua? (Digite ou deixe vazio)");
+            string unblock = configString();
 
-        if (caminho == null)
-        {
-            Console.WriteLine("Nenhuma rota possível.");
-        }    
-        else
-        {
-            Console.WriteLine("Rota encontrada: " + string.Join(" -> ", caminho));
+            if (!string.IsNullOrWhiteSpace(unblock))
+                mapa.UnblockStreet(unblock);
 
-            int distancia = mapa.PathDistance(caminho);
-            Console.WriteLine("Distância total: " + distancia + " ruas. ");
+            mapa.DisplayMap();
+
+            Console.WriteLine("Rua de origem:");
+            string start = configString();
+
+            Console.WriteLine("Rua de destino:");
+            string end = configString();
+
+            var caminho = mapa.FindPath(start, end);
+
+            if (caminho == null)
+            {
+                Console.WriteLine("Nenhuma rota possível.");
+            }    
+            else
+            {
+                Console.WriteLine("Rota encontrada: " + string.Join(" -> ", caminho));
+
+                int distancia = mapa.PathDistance(caminho);
+                Console.WriteLine("Distância total: " + distancia + " ruas. ");
+            }
         }
     }
 }

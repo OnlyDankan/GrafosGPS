@@ -136,7 +136,7 @@ class Program
         bool Continua = true;
         while (Continua)
         {
-            Console.WriteLine("\n--- Iniciando Sistema ---\n...(Digite 'sair' para encerrar ou vazio para continuar)...\n");
+            Console.WriteLine("\n--- Iniciando Sistema ---");
 
             Graph mapa = new Graph();
 
@@ -161,10 +161,22 @@ class Program
             }
 
             // se o usuario digitar sair, ele para o programa *🦆 melhor mexer pra q isso possa ocorrer a qualquer momento e nao apenas no começo (dps faço isso)
-            if (configString() == "SAIR")
+            //Arrumei já bebe *卐 Eu fiz um loop, foi o único jeito que achei para arrumar, mas provavelmente tem melhores.
+            string entrada;
+            while (true)
             {
-                mapa.Stop();
-                break;
+                Console.WriteLine("...(Digite 'sair' para encerrar ou vazio para continuar)...");
+                entrada = configString();
+
+                if (string.IsNullOrEmpty(entrada)) break;
+
+                if (entrada == "SAIR")
+                {
+                    mapa.Stop();
+                    break;
+                }
+
+                Console.WriteLine("Entrada inválida! Digite somente 'sair' ou deixe vázio.");
             }
 
             Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");

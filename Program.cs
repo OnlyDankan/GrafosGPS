@@ -161,13 +161,14 @@ class Program
             }
 
             // se o usuario digitar sair, ele para o programa *🦆 melhor mexer pra q isso possa ocorrer a qualquer momento e nao apenas no começo (dps faço isso)
-            //Arrumei já bebe *卐 Eu fiz um loop, foi o único jeito que achei para arrumar, mas provavelmente tem melhores.
+            //Arrumei já bebe *🇮🇹 Eu fiz um loop, foi o único jeito que achei para arrumar, mas provavelmente tem melhores.
             string entrada;
             while (true)
             {
                 Console.WriteLine("...(Digite 'sair' para encerrar ou vazio para continuar)...");
                 entrada = configString();
 
+                //Aqui o sistema ele da continuidade caso o usuário coloque um espaço como resposta
                 if (string.IsNullOrEmpty(entrada)) break;
 
                 if (entrada == "SAIR")

@@ -115,6 +115,7 @@ public class Graph
     public void DisplayMap()
     {
         Console.WriteLine("\n--- MAPA ATUAL ---");
+
         foreach (var rua in adj)
         {
             Console.WriteLine($"{rua.Key} -> {string.Join(", ", rua.Value)}");
@@ -180,8 +181,14 @@ class Program
                 Console.WriteLine("Entrada inválida! Digite somente 'sair' ou deixe vázio.");
             }
 
+
+                
+            
+                
+            
             Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
             string block = configString();
+            
 
             if (!string.IsNullOrWhiteSpace(block))
                 mapa.BlockStreet(block);
@@ -213,6 +220,8 @@ class Program
                 int distancia = mapa.PathDistance(caminho);
                 Console.WriteLine("Distância total: " + distancia + " ruas. ");
             }
+                
+                
         }
     }
 }

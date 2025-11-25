@@ -128,6 +128,11 @@ public class Graph
         Console.WriteLine("Encerrando sistema. Até a proxima!");
         Environment.Exit(0);
     }
+
+    internal bool ConstainsStreet(string start)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 class Program
@@ -182,7 +187,7 @@ class Program
             }
 
 
-            Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
+            Console.WriteLine("Qual rua está bloqueada? (Digite ou deixe vazio)");
             string block = configString();
             
 
@@ -197,11 +202,39 @@ class Program
 
             mapa.DisplayMap();
 
-            Console.WriteLine("Rua de origem:");
-            string start = configString();
 
-            Console.WriteLine("Rua de destino:");
-            string end = configString();
+            Console.Write("Rua de origem:");
+            string start;
+
+            //Aqui é criado um loop para caso o usuário digite uma rua errada, o sistema perguntar de novo.
+            while (true)
+            {
+             start = configString();
+
+             if (mapa.ConstainsStreet(start))
+                {
+                    break;
+                }   
+
+            Console.Write("Rua inválida! Digite novamente: ");  
+            }
+
+            Console.Write("Rua de destino:");
+            string end;
+
+            //Loop com a mesma intenção do de cima
+            while (true)
+            {
+                end = configString();
+
+                if (mapa.ConstainsStreet(end))
+                {
+                    break;
+                }
+
+
+            Console.Write("Rua inválida! Digite novamente: ");    
+            }
 
             var caminho = mapa.FindPath(start, end);
 

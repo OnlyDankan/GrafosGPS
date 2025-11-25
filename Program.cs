@@ -182,10 +182,6 @@ class Program
             }
 
 
-                
-            
-                
-            
             Console.WriteLine("Deseja bloquear alguma rua? (Digite ou deixe vazio)");
             string block = configString();
             
@@ -211,7 +207,7 @@ class Program
 
             if (caminho == null)
             {
-                Console.WriteLine("Nenhuma rota possível.");
+                Console.WriteLine($"A rua {end} está bloqueada.");
             }    
             else
             {

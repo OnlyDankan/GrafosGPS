@@ -129,9 +129,10 @@ public class Graph
         Environment.Exit(0);
     }
 
-    internal bool ConstainsStreet(string start)
+    //NÃO MEXA AQUI, TÁ FUNCIONANDO SÓ POR INTERVENÇÃO DIVINA
+    internal bool ConstainsStreet(string street)
     {
-        throw new NotImplementedException();
+        return adj.ContainsKey(street);
     }
 }
 
@@ -253,4 +254,11 @@ class Program
                 
         }
     }
+
+     private static void While(bool v)
+    {
+        throw new NotImplementedException();
+    }   
+
+
 }

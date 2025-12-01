@@ -1,7 +1,7 @@
 :root {
-    --corPrimaria: #0044ff;
-    --corPrimariaHover: #2f82ff;
-    --corSecundaria: #c2c2d4;
+    --corPrimaria: #004aad;
+    --corPrimariaHover: rgb(70, 154, 250);
+    --corSecundaria: #d0d0dd;
     --corTerciaria: rgb(48, 48, 66);
     --corQuartenaria: #e1e4ec;
     --corBorder: #a7a2b6;
@@ -19,8 +19,8 @@ body {
 }
 
 header {
-    width: 800px;
-    max-width: 900px;
+    width: 90%;
+    max-width: 90%;
     margin: 0 auto;
     text-align: center;
     color: white;
@@ -28,6 +28,7 @@ header {
     font-size: 12px;
     border-radius: 0px 0px 34px 34px;
     background-color: var(--corPrimaria);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.37);
 }
 
 .container {
@@ -35,24 +36,25 @@ header {
     max-width: 900px;
     margin: 30px auto 0 auto;
     display: flex;
-    gap: 20px;
+    gap: 80px;
     align-items: flex-start;
     justify-content: center;
     flex: 1;
 }
 
 .sideOptions section {
-    padding: 20px;
+    padding: 40px;
     border: solid 2px var(--corBorder);
     border-radius: 12px;
-    width: 200px;
-    background-color: var(--corSecundaria)
+    width: 400px;
+    background-color: var(--corSecundaria);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.37);
 }
 
 .sideOptions h2 {
     text-align: center;
-    margin: 0 0 15px 0;
-    font-size: 20px;
+    margin: 0 0 26px 0;
+    font-size: 26px;
     color: var(--corTerciaria)
 }
 
@@ -65,7 +67,7 @@ header {
 }
 
 .dropdownInput {
-    padding: 10px;
+    padding: 17px;
     border-radius: 8px;
     border: 1px solid #ccc;
     cursor: pointer;
@@ -73,7 +75,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-    color: var(--corBorder);
+    color: var(--corTerciaria);
     font-style: italic;
     background: white;
 }
@@ -127,12 +129,13 @@ header {
     border: 2px solid var(--corBorder);
     border-radius: 16px;
     margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.37);
 }
 
 .rota {
     position: relative;
     background: var(--corQuartenaria);
-    padding: 15px;
+    padding: 20px;
     border-radius: 26px;
     border: 2px solid var(--corBorder);
     display: flex;
@@ -140,17 +143,23 @@ header {
     justify-content: center;
     width: 600px;
     box-sizing: border-box;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 1 auto;
     bottom: 100px;
 }
 
 #rotaTexto {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--corTerciaria);
     letter-spacing: 2px;
     font-style: italic;
     font-weight: bold;
+}
+
+#resultado {
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 .ponto {
@@ -166,6 +175,12 @@ header {
     align-items: center;
     position: absolute;
     transition: .2s;
+    cursor: pointer;
+}
+
+.ponto:hover {
+    background: var(--corPrimariaHover);
+    color: var(--corTerciaria)
 }
 
 .ponto.bloqueado {
@@ -197,7 +212,7 @@ header {
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     background: var(--corPrimaria);
     border: none;
     color: white;
@@ -213,7 +228,7 @@ button:hover {
 
 .info {
     margin: 15px 0 5px 0;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--corTerciaria);
     font-style: italic;
 }
@@ -221,7 +236,7 @@ button:hover {
 footer {
     width: 100%;
     position: fixed; left: 0; right: 0; bottom: 0;
-    height: 70px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;

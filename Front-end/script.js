@@ -1,12 +1,12 @@
-/*botoes escolha comeco/fim*/
-
+/*dropdown botao comeco/fim*/
 function toggleDropdown(id){
     const box = document.getElementById("opcoes-" + id);
     box.style.display = (box.style.display === "flex") ? "none" : "flex";
 }
 
 function selecionar(valor, id){
-    document.getElementById("texto-" + id).innerText = valor;
+    const spanId = id === 'a' ? 'origem' : 'destino';
+    document.getElementById(spanId).innerText = valor;
     document.getElementById("opcoes-" + id).style.display = "none";
 }
 
@@ -18,8 +18,9 @@ document.addEventListener("click", function(event){
         }
     });
 });
+/*fim do dropdown botao*/
 
-/* ========= GRAFO BASEADO NO SEU C# ========= */
+/* ========= GRAFO ========= */
 const conexoes = {
     A: ["B","C","I"],
     B: ["A","D","F"],
@@ -82,7 +83,7 @@ function render(){
         });
     });
 
-    // pontos
+    //pontos
     Object.keys(pos).forEach(key=>{
         const p = document.createElement("div");
         p.className = "ponto";
@@ -101,7 +102,6 @@ function render(){
     });
 }
 
-/* ========= BFS ========== */
 function bfs(origem, destino){
 
     if(bloqueado[origem] || bloqueado[destino]) return null;
@@ -137,10 +137,9 @@ function bfs(origem, destino){
     return caminho.reverse();
 }
 
-/* ========= BOTÃO BUSCAR ========= */
-function encontrar(){
-    let o = document.getElementById("origem").value.toUpperCase();
-    let d = document.getElementById("destino").value.toUpperCase();
+function confirmar(){
+    let o = document.getElementById("origem").innerText.trim();
+    let d = document.getElementById("destino").innerText.trim();
     const out = document.getElementById("resultado");
 
     if(!conexoes[o] || !conexoes[d]){
@@ -157,12 +156,15 @@ function encontrar(){
     }
 }
 
-/* ========= RESET ========= */
+function gerar(){
+    document.getElementById("resultado").innerHTML = "Novo Mapa Gerado (sistema nao feito ainda)";
+}
+
 function resetar(){
     bloqueado = {A:false,B:false,C:false,D:false,E:false};
-    document.getElementById("origem").value="";
-    document.getElementById("destino").value="";
-    document.getElementById("resultado").innerHTML="";
+    document.getElementById("origem").innerText = "rua inicial...";
+    document.getElementById("destino").innerText = "rua final...";
+    document.getElementById("resultado").innerHTML = "trajeto será mostrado aqui!";
     render();
 }
 

@@ -1,7 +1,10 @@
 :root {
     --corPrimaria: #0044ff;
+    --corPrimariaHover: #2f82ff;
     --corSecundaria: #c2c2d4;
-    --corTerciaria: #a7a2b6;
+    --corTerciaria: rgb(48, 48, 66);
+    --corQuartenaria: #e1e4ec;
+    --corBorder: #a7a2b6;
     --fontePrincipal: Arial;
 }
 
@@ -10,63 +13,58 @@ body {
     background: #ffffff;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 18px;
     margin-top: 0px;
+    margin: 0px;
     min-height: 100vh;
 }
 
 header {
     width: 800px;
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
     color: white;
-    padding: 14px;
+    padding: 8px;
+    font-size: 12px;
     border-radius: 0px 0px 34px 34px;
     background-color: var(--corPrimaria);
 }
 
 .container {
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    justify-content: center;
+    flex: 1;
 }
 
 .sideOptions section {
-    padding: 16px;
-    border: solid 2px var(--corTerciaria);
+    padding: 20px;
+    border: solid 2px var(--corBorder);
     border-radius: 12px;
+    width: 200px;
     background-color: var(--corSecundaria)
 }
 
-.mapArea {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-/*mapa*/
-#mapa {
-    position: relative;
-    width: 700px;
-    height: 600px;
-    background: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 35px;
+.sideOptions h2 {
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    color: var(--corTerciaria)
 }
 
 /*botao da escolha de comeco/fim*/
 .dropdown {
-    width: 200px;
+    width: 100%;
     position: relative;
     font-family: var(--fontePrincipal);
     margin-bottom: 12px;
 }
 
 .dropdownInput {
-    background: white;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -74,6 +72,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 16px;
+    color: var(--corBorder);
+    font-style: italic;
+    background: white;
 }
 
 .arrow {
@@ -97,43 +99,90 @@ header {
     padding: 10px;
     text-align: center;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .option:hover {
-    background: #f0f0f0;
+    background: var(--corSecundaria);
 }
 /*fim botao de inicio/fim*/
 
+.mapArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 700px;
+}
+
+/*mapa*/
+#mapa {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 700px;
+    height: 600px;
+    background: var(--corSecundaria);
+    border: 2px solid var(--corBorder);
+    border-radius: 16px;
+    margin: 0 auto;
+}
+
+.rota {
+    position: relative;
+    background: var(--corQuartenaria);
+    padding: 15px;
+    border-radius: 26px;
+    border: 2px solid var(--corBorder);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    box-sizing: border-box;
+    margin: 30px auto 0 auto;
+    bottom: 100px;
+}
+
+#rotaTexto {
+    text-align: center;
+    font-size: 16px;
+    color: var(--corTerciaria);
+    letter-spacing: 2px;
+    font-style: italic;
+    font-weight: bold;
+}
+
 .ponto {
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:var(--corPrimaria);
-    color:white;
-    font-size:14px;
-    font-weight:bold;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:absolute;
-    transition:.2s;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--corPrimaria);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: .2s;
 }
 
 .ponto.bloqueado {
-    background:#777;
+    background: #777;
     text-decoration: line-through;
 }
 
 .linha {
-    position:absolute;
-    height:3px;
-    background:#444;
-    transform-origin:0 0;
-    transition:.2s;
+    position: absolute;
+    height: 3px;
+    background: #444;
+    transform-origin: 0 0;
+    transition: .2s;
 }
 
 .linha.hidden {
-    opacity:0;
+    opacity: 0;
 }
 
 #painel {
@@ -146,24 +195,54 @@ header {
     text-align:center;
 }
 
-input {
-    padding:6px;
-    width:80px;
-    font-size:14px;
-    text-transform:uppercase;
-}
-
 button {
-    padding:7px 10px;
+    width: 100%;
+    padding: 10px;
     background: var(--corPrimaria);
-    border:none;
-    color:white;
-    cursor:pointer;
-    border-radius:5px;
-    margin-left:5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 15px;
 }
 
-#resultado {
-    margin-top:8px;
-    font-size:14px;
+button:hover {
+    background: var(--corPrimariaHover)
+}
+
+.info {
+    margin: 15px 0 5px 0;
+    font-size: 14px;
+    color: var(--corTerciaria);
+    font-style: italic;
+}
+
+footer {
+    width: 100%;
+    position: fixed; left: 0; right: 0; bottom: 0;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: var(--corSecundaria);
+    font-size: 16px;
+    background: var(--corTerciaria);
+    z-index: 10;
+}
+
+p {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.nomes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

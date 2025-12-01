@@ -187,7 +187,7 @@ class Program
                 Console.WriteLine("Entrada inválida! Digite somente 'sair' ou deixe vázio.");
             }
 
-
+            //*it Deixar apenas para a versão no terminal
             Console.WriteLine("\nHá 5 ruas");
             Console.WriteLine("A, B, C, D, e E");
 
@@ -257,7 +257,7 @@ class Program
                 
         }
     }
-
+    //Só Deus sabe o pq o VsCode criou e o pq isso funciona
      private static void While(bool v)
     {
         throw new NotImplementedException();

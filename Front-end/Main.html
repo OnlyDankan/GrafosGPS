@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>GrafosGps</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Sistema de GPS</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sideOptions">
+            <section> 
+                <h2>Opções</h2>
+
+                <!--primeiro botao com opcoes da rua inicial-->
+                <div class="dropdown">
+                    <div class="dropdownInput" onClick="toggleDropdown('a')">
+                        <span id="texto-a">rua inicial...</span>
+                        <span id="arrow">v</span>
+                    </div>
+
+                    <div class="dropdownOptions" id="opcoes-a">
+                        <div class="option" onclick="selecionar('A', 'a')">A</div>
+                        <div class="option" onclick="selecionar('B', 'a')">B</div>
+                        <div class="option" onclick="selecionar('C', 'a')">C</div>
+                        <div class="option" onclick="selecionar('D', 'a')">D</div>
+                        <div class="option" onclick="selecionar('E', 'a')">E</div>
+                        <div class="option" onclick="selecionar('F', 'a')">F</div>
+                        <div class="option" onclick="selecionar('G', 'a')">G</div>
+                        <div class="option" onclick="selecionar('H', 'a')">H</div>
+                        <div class="option" onclick="selecionar('I', 'a')">I</div>
+                    </div>
+                </div>
+
+                <!--segundo botao com ocpoes da rua final-->
+                <div class="dropdown">
+                    <div class="dropdownInput" onClick="toggleDropdown('b')">
+                        <span id="texto-b">rua final...</span>
+                        <span id="arrow">v</span>
+                    </div>
+
+                    <div class="dropdownOptions" id="opcoes-b">
+                        <div class="option" onclick="selecionar('A', 'b')">A</div>
+                        <div class="option" onclick="selecionar('B', 'b')">B</div>
+                        <div class="option" onclick="selecionar('C', 'b')">C</div>
+                        <div class="option" onclick="selecionar('D', 'b')">D</div>
+                        <div class="option" onclick="selecionar('E', 'b')">E</div>
+                        <div class="option" onclick="selecionar('F', 'b')">F</div>
+                        <div class="option" onclick="selecionar('G', 'b')">G</div>
+                        <div class="option" onclick="selecionar('H', 'b')">H</div>
+                        <div class="option" onclick="selecionar('I', 'b')">I</div>
+                    </div> 
+                </div>
+
+                <div class="actions">
+                    <button onClick="">Confirmar</button>
+
+                    <p class="info">Novo Mapa Aleatório</p>
+                    <button>Gerar</button>
+
+                    <p class="info">Reiniciar Mapa</p>
+                    <button onClick="resetar()">Reiniciar</button>
+                </div>
+            </section>
+        </aside>
+
+        <main class="mapArea">
+            <!--gerando mapa nessa div-->
+            <div id="mapa"></div>
+
+            <div class="rota" id="rota">
+                <span id="rotaTexto"><!--feedback vai ficar aqui--></span>
+            </div>
+        </main>
+    </div>
+        
+</body>
+
+<script src="script.js"></script>
+
+</html>

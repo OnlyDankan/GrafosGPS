@@ -41,26 +41,28 @@ const conexoes = {
     D: ["B","E","G","F","H"],
     E: ["C","D","G","I"],
     F: ["D","B","B","I"],
-    G: ["D","E"],
-    H: ["C","D","I"],
+    G: ["D","E","J"],
+    H: ["C","D","I","J"],
     I: ["H","F","A","E"],
+    J: ["H","G"],
 };
 
 /* ========= POSIÇÕES VISUAIS FIXAS ========= */
 const pos = {
-    A:{x:260, y:50},
-    B:{x:120, y:150},
-    C:{x:400, y:150},
-    D:{x:120, y:270},
-    E:{x:400, y:270},
-    F:{x:40, y:200},
-    G:{x:260, y:330},
-    H:{x:480, y:200},
-    I:{x:260, y:200},
+    A:{x:350, y:50},
+    B:{x:200, y:150},
+    C:{x:500, y:150},
+    D:{x:150, y:370},
+    E:{x:500, y:320},
+    F:{x:80, y:215},
+    G:{x:350, y:460},
+    H:{x:610, y:215},
+    I:{x:350, y:200},
+    J:{x:600, y:400},
 };
 
 /* ========= ESTADO DE BLOQUEIO ========= */
-let bloqueado = {A:false,B:false,C:false,D:false,E:false,F:false,G:false,H:false,I:false};
+let bloqueado = {A:false,B:false,C:false,D:false,E:false,F:false,G:false,H:false,I:false,J:false};
 
 const mapa = document.getElementById("mapa");
 

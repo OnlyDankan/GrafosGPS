@@ -143,7 +143,7 @@ class Program
         bool Continua = true;
         while (Continua)
         {
-            Console.WriteLine("\n--- Iniciando Sistema ---");
+            Console.WriteLine("\n Seja Bem-Vindo(a) ao GPS");
 
             Graph mapa = new Graph();
 
@@ -187,6 +187,9 @@ class Program
                 Console.WriteLine("Entrada inválida! Digite somente 'sair' ou deixe vázio.");
             }
 
+            //*it Deixar apenas para a versão no terminal
+            Console.WriteLine("\nHá 5 ruas");
+            Console.WriteLine("A, B, C, D, e E");
 
             Console.WriteLine("Qual rua está bloqueada? (Digite ou deixe vazio)");
             string block = configString();
@@ -204,7 +207,7 @@ class Program
             mapa.DisplayMap();
 
 
-            Console.Write("Rua de origem:");
+            Console.Write("Rua de origem: ");
             string start;
 
             //Aqui é criado um loop para caso o usuário digite uma rua errada, o sistema perguntar de novo.
@@ -220,7 +223,7 @@ class Program
             Console.Write("Rua inválida! Digite novamente: ");  
             }
 
-            Console.Write("Rua de destino:");
+            Console.Write("Rua de destino: ");
             string end;
 
             //Loop com a mesma intenção do de cima
@@ -254,7 +257,7 @@ class Program
                 
         }
     }
-
+    //Só Deus sabe o pq o VsCode criou e o pq isso funciona
      private static void While(bool v)
     {
         throw new NotImplementedException();

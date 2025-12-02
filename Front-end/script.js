@@ -33,7 +33,7 @@ document.addEventListener("click", function(event){
 });
 /*fim do dropdown botao*/
 
-/* ========= GRAFO ========= */
+//linhas que conectam os pontos
 const conexoes = {
     A: ["B","C","I"],
     B: ["A","D","F"],
@@ -47,7 +47,7 @@ const conexoes = {
     J: ["H","G"],
 };
 
-/* ========= POSIÇÕES VISUAIS FIXAS ========= */
+//coordenadas dos pontos do mapa
 const pos = {
     A:{x:350, y:50},
     B:{x:200, y:150},
@@ -61,15 +61,18 @@ const pos = {
     J:{x:600, y:400},
 };
 
-/* ========= ESTADO DE BLOQUEIO ========= */
+//estado de que quando a rua for bloqueada, ela fica inacessivel
 let bloqueado = {A:false,B:false,C:false,D:false,E:false,F:false,G:false,H:false,I:false,J:false};
 
 const mapa = document.getElementById("mapa");
 
-/* ========= DESENHO GERAL ========= */
+//visual
 function render(){
 
     mapa.innerHTML = "";
+
+    //descobre quais linhas devem ser pintadas 
+    let arestasPercorridas = caminhoAtual.length > 1 ? pegarArestasCaminho(caminhoAtual) : new Set();
 
     // linhas
     Object.keys(conexoes).forEach(a=>{
@@ -92,6 +95,10 @@ function render(){
 
                 if(bloqueado[a] || bloqueado[b])
                     ln.classList.add("hidden");
+
+                if (arestasPercorridas.has(a + '-' + b)){
+                    ln.classList.add("percorrida")
+                }
 
                 mapa.appendChild(ln);
             }
@@ -152,6 +159,19 @@ function bfs(origem, destino){
     return caminho.reverse();
 }
 
+//funcao de pintar o caminho que deve ser seguido
+let caminhoAtual = [];
+
+function pegarArestasCaminho(caminho){
+    let arestas = new Set();
+    for (let i = 0; i < caminho.length - 1; i++){
+        //
+        let a = caminho[i], b = caminho[i+1];
+        arestas.add(a < b ? a + '-' + b : b + '-' + a);
+    }
+    return arestas
+}
+
 function confirmar(){
     let o = document.getElementById("origem").innerText.trim();
     let d = document.getElementById("destino").innerText.trim();
@@ -159,16 +179,21 @@ function confirmar(){
 
     if(!conexoes[o] || !conexoes[d]){
         out.innerHTML = "Origem ou destino inválidos.";
+        caminhoAtyal = [];
+        render();
         return;
     }
 
     const caminho = bfs(o,d);
     if(!caminho){
         out.innerHTML = "Não existe caminho possível.";
+        caminhoAtual = [];
     } else {
         out.innerHTML = `Caminho: <b>${caminho.join(" → ")}</b><br>
                          Distância: <b>${caminho.length-1}</b> ruas`;
+        caminhoAtual = caminho
     }
+    render();
 }
 
 function gerar(){
@@ -176,10 +201,11 @@ function gerar(){
 }
 
 function resetar(){
-    bloqueado = {A:false,B:false,C:false,D:false,E:false};
+    bloqueado = {A:false,B:false,C:false,D:false,E:false,F:false,G:false,H:false,I:false,J:false};
     document.getElementById("origem").innerText = "rua inicial...";
     document.getElementById("destino").innerText = "rua final...";
-    document.getElementById("resultado").innerHTML = "trajeto será mostrado aqui!";
+    document.getElementById("resultado").innerHTML = "Trajeto será mostrado aqui!";
+    caminhoAtual = []; //limpa o caminho pintado de verde
     render();
 }
 

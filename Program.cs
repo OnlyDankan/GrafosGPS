@@ -153,6 +153,16 @@ class Program
             mapa.AddStreet("C");
             mapa.AddStreet("D");
             mapa.AddStreet("E");
+            mapa.AddStreet("F");
+            mapa.AddStreet("G");
+            mapa.AddStreet("H");
+            mapa.AddStreet("I");
+            mapa.AddStreet("J");
+            mapa.AddStreet("K");
+            mapa.AddStreet("L");
+            mapa.AddStreet("M");
+            mapa.AddStreet("N");
+
 
             // Conexões
             mapa.Connect("A", "B");
@@ -160,6 +170,19 @@ class Program
             mapa.Connect("B", "D");
             mapa.Connect("C", "E");
             mapa.Connect("E", "D");
+            mapa.Connect("E", "F");
+            mapa.Connect("E", "G");
+            mapa.Connect("E", "H");
+            mapa.Connect("F", "I");
+            mapa.Connect("F", "J");
+            mapa.Connect("H", "K");
+            mapa.Connect("H", "L");
+            mapa.Connect("I", "M");
+            mapa.Connect("J", "M");
+            mapa.Connect("K", "N");
+            mapa.Connect("L", "N");
+            mapa.Connect("M", "N");
+
 
             // funcao pra ler, formatar pra maiusculo e remover espacos (evita erros)
             string configString()
@@ -189,7 +212,7 @@ class Program
 
             //*it Deixar apenas para a versão no terminal
             Console.WriteLine("\nHá 5 ruas");
-            Console.WriteLine("A, B, C, D, e E");
+            Console.WriteLine("De A à N");
 
             Console.WriteLine("Qual rua está bloqueada? (Digite ou deixe vazio)");
             string block = configString();

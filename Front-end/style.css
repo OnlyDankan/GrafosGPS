@@ -1,21 +1,25 @@
 :root {
+    /*light mode*/
+    --corBackground: #f2f2f2;
     --corPrimaria: #004aad;
     --corPrimariaHover: rgb(70, 154, 250);
     --corSecundaria: #d0d0dd;
     --corTerciaria: rgb(48, 48, 66);
     --corQuartenaria: #e1e4ec;
     --corBorder: #a7a2b6;
+
     --fontePrincipal: Arial;
 }
 
 body {
     font-family: var(--fontePrincipal);
-    background: #ffffff;
+    background: var(--corBackground);
     display: flex;
     flex-direction: column;
     margin-top: 0px;
     margin: 0px;
     min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -31,12 +35,23 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.37);
 }
 
+/*LIGHT MODE legalzao*/
+.dark {
+    --corBackground: #07091a;
+    --corPrimariaHover: rgb(41, 107, 230);
+    --corSecundaria: #1e1d2b;
+    --corTerciaria: rgb(234, 234, 241);
+    --corQuartenaria: rgb(21, 22, 26);
+    --corBorder: #3b3f55;
+}
+
 .container {
     width: 100%;
     max-width: 900px;
     margin: 30px auto 0 auto;
+    margin-top: 90px;
     display: flex;
-    gap: 80px;
+    gap: 180px;
     align-items: flex-start;
     justify-content: center;
     flex: 1;
@@ -54,7 +69,7 @@ header {
 .sideOptions h2 {
     text-align: center;
     margin: 0 0 26px 0;
-    font-size: 26px;
+    font-size: 36px;
     color: var(--corTerciaria)
 }
 
@@ -67,17 +82,18 @@ header {
 }
 
 .dropdownInput {
-    padding: 17px;
+    padding: 25px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--corBorder);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     color: var(--corTerciaria);
     font-style: italic;
-    background: white;
+    font-weight: bold;
+    background: var(--corQuartenaria);
 }
 
 .arrow {
@@ -88,7 +104,7 @@ header {
     display: none;
     flex-direction: column;
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid var(--corBorder);
     border-radius: 10px;
     margin-top: 5px;
     overflow: hidden;
@@ -98,7 +114,10 @@ header {
 }
 
 .option {
+    color: var(--corTerciaria);
+    background: var(--corQuartenaria);
     padding: 10px;
+    border: 1px solid var(--corBorder);
     text-align: center;
     cursor: pointer;
     font-size: 14px;
@@ -109,12 +128,25 @@ header {
 }
 /*fim botao de inicio/fim*/
 
+.darkLight {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto 0 auto;
+    font-size: 22px;
+    cursor: pointer;
+    background: var(--corPrimaria);
+}
+
 .mapArea {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
-    width: 700px;
+    width: 800px;
 }
 
 /*mapa*/
@@ -123,7 +155,7 @@ header {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    width: 700px;
+    width: 800px;
     height: 600px;
     background: var(--corSecundaria);
     border: 2px solid var(--corBorder);
@@ -150,7 +182,6 @@ header {
 #rotaTexto {
     text-align: center;
     font-size: 18px;
-    color: var(--corTerciaria);
     letter-spacing: 2px;
     font-style: italic;
     font-weight: bold;
@@ -160,6 +191,7 @@ header {
     width: 100%;
     text-align: center;
     display: block;
+    color: var(--corTerciaria);
 }
 
 .ponto {
@@ -219,7 +251,7 @@ button {
     cursor: pointer;
     border-radius: 8px;
     margin-bottom: 16px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 button:hover {

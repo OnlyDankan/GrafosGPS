@@ -65,30 +65,23 @@
 
                 <p class="info">Reiniciar Mapa</p>
                 <button onClick="resetar()" class="botaoReiniciar">Reiniciar</button>
+
+                <!--dark/light mode-->
+                <div class="darkLight" id="themeToggle" onclick="toggleTheme()">🌙</div>
             </section>
         </aside>
 
-        <main class="mapArea">
-            <!--mapa e gerado aqui-->
-            <div id="mapa"></div>
+        <main>
+            <div class="mapArea">
+                <!--mapa e gerado aqui-->
+                <div id="mapa"></div>
 
-            <div class="rota" id="rota">
-                <span id="resultado">trajeto será mostrado aqui<!--feedback vai ficar aqui--></span>
+                <div class="rota" id="rota">
+                    <span id="resultado">trajeto será mostrado aqui<!--feedback vai ficar aqui--></span>
+                </div>
             </div>
         </main>
     </div>
-
-    <footer>
-        <p>Integrantes</p>
-
-        <ul class="nomes">
-            <li>Nome1</li>
-            <li>Nome2</li>
-            <li>Nome3</li>
-            <li>Nome4</li>
-            <li>Nome5</li>
-        </ul>
-    </footer>
     
     <script src="script.js"></script>
 </body>

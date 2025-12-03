@@ -184,6 +184,24 @@ class Program
             mapa.Connect("M", "N");
 
 
+            /*Assim ficaria o mapa mentalmente:
+
+
+         B
+       /   \
+      A     D
+       \   /
+         C
+         |
+         E
+      /  |  \
+     F   G   H
+    / \     / \
+   I   J   K   L
+    \ /     \ /
+     M-------N
+*/
+
             // funcao pra ler, formatar pra maiusculo e remover espacos (evita erros)
             string configString()
             {
@@ -211,7 +229,7 @@ class Program
             }
 
             //*it Deixar apenas para a versão no terminal
-            Console.WriteLine("\nHá 5 ruas");
+            Console.WriteLine("\nHá 14 ruas");
             Console.WriteLine("De A à N");
 
             Console.WriteLine("Qual rua está bloqueada? (Digite ou deixe vazio)");
@@ -276,8 +294,19 @@ class Program
                 int distancia = mapa.PathDistance(caminho);
                 Console.WriteLine("Distância total: " + distancia + " ruas. ");
             }
-                
-                
+
+            
+            Console.Write("Você gostaria de fazer outra rota? (S/N)");
+            string Nrota = Console.ReadLine();
+
+            if (!Nrota.Equals("S", StringComparison.OrdinalIgnoreCase))
+            {
+                Continua = false;
+            } else
+            {
+                Console.WriteLine("Encerrando sistema. Até a próxima!");
+            }
+            
         }
     }
     //Só Deus sabe o pq o VsCode criou e o pq isso funciona
@@ -285,6 +314,5 @@ class Program
     {
         throw new NotImplementedException();
     }   
-
 
 }

@@ -285,7 +285,7 @@ class Program
 
             if (caminho == null)
             {
-                Console.WriteLine($"O trajeto para a rua {end} está bloqueado.");
+                Console.WriteLine($"O trajeto para a rua {end} está bloqueado");
             }    
             else
             {

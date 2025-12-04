@@ -302,10 +302,8 @@ class Program
             if (!Nrota.Equals("S", StringComparison.OrdinalIgnoreCase))
             {
                 Continua = false;
-            } else
-            {
                 Console.WriteLine("Encerrando sistema. Até a próxima!");
-            }
+            } 
             
         }
     }

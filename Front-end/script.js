@@ -71,7 +71,7 @@ function render(){
 
     mapa.innerHTML = "";
 
-    //descobre quais linhas devem ser pintadas 
+    //descobre quais linhas devem ser pintadas de verde
     let arestasPercorridas = caminhoAtual.length > 1 ? pegarArestasCaminho(caminhoAtual) : new Set();
 
     // linhas
@@ -172,6 +172,7 @@ function pegarArestasCaminho(caminho){
     return arestas
 }
 
+//confirmacoes/checagens
 function confirmar(){
     let o = document.getElementById("origem").innerText.trim();
     let d = document.getElementById("destino").innerText.trim();

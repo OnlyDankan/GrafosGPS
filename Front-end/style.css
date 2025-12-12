@@ -62,7 +62,7 @@ header {
     border: solid 2px var(--corBorder);
     border-radius: 12px;
     width: 400px;
-    height: 600px;
+    height: 500px; /*600px quando tiver o botao de gerar mapa aleatorio*/
     background-color: var(--corSecundaria);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.37);
 }

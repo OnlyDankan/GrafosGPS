@@ -248,7 +248,7 @@ class Program
             mapa.DisplayMap();
 
 
-            Console.Write("Rua de inicial: ");
+            Console.Write("Rua de origem: ");
             string start;
 
             //Aqui é criado um loop para caso o usuário digite uma rua errada, o sistema perguntar de novo.

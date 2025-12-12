@@ -49,16 +49,16 @@ const conexoes = {
 
 //coordenadas dos pontos do mapa
 const pos = {
-    A:{x:350, y:50},
-    B:{x:200, y:150},
+    A:{x:380, y:80},
+    B:{x:200, y:110},
     C:{x:500, y:150},
-    D:{x:150, y:370},
-    E:{x:500, y:320},
-    F:{x:80, y:215},
-    G:{x:350, y:460},
-    H:{x:610, y:215},
+    D:{x:150, y:450},
+    E:{x:320, y:320},
+    F:{x:80, y:265},
+    G:{x:480, y:510},
+    H:{x:690, y:215},
     I:{x:350, y:200},
-    J:{x:600, y:400},
+    J:{x:650, y:400},
 };
 
 //estado de que quando a rua for bloqueada, ela fica inacessivel
@@ -203,8 +203,8 @@ function gerar(){
 
 function resetar(){
     bloqueado = {A:false,B:false,C:false,D:false,E:false,F:false,G:false,H:false,I:false,J:false};
-    document.getElementById("origem").innerText = "rua inicial...";
-    document.getElementById("destino").innerText = "rua final...";
+    document.getElementById("origem").innerText = "Origem...";
+    document.getElementById("destino").innerText = "Destino...";
     document.getElementById("resultado").innerHTML = "Trajeto será mostrado aqui!";
     caminhoAtual = []; //limpa o caminho pintado de verde
     render();
